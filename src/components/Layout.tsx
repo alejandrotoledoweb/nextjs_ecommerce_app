@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <section>
+    <section className=''>
       <Head>
         <title>Ecommerce NextJS</title>
       </Head>
@@ -19,6 +19,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </AppBar>
 
       <Container>{children}</Container>
+      <footer>
+        <Typography variant='h6' align='center' gutterBottom>
+          All rights reserved. @ATF_Store
+        </Typography>
+      </footer>
     </section>
   );
 };

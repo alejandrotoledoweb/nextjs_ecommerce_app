@@ -7,10 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <Layout>
-      <main
-        className={`flex min-h-screen flex-col items-center justify-start p-24 ${inter.className}`}
-      >
-        <h1 className='text-6xl font-bold'>Products</h1>
+      <main className={`home ${inter.className}`}>
+        <h1 className='home--title'>Products</h1>
         <ul>
           <li>Product 1</li>
           <li>Product 2</li>

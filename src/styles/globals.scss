@@ -21,3 +21,17 @@ body {
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
 }
+
+.home {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding-top: 10px;
+
+  &--title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+}

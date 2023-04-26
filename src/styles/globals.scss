@@ -1,6 +1,6 @@
 @use "../components/layout.style";
 @use "../pages/product/_[name].styles" as single;
-@use "../components/product.style";
+@use "../components/product-item.style";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,6 +12,7 @@ $primary-hover-btn-color: #bcbc00;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-end-rgb-light: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,10 +23,13 @@ $primary-hover-btn-color: #bcbc00;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
-    rgb(var(--background-start-rgb));
+.main {
+  background-color: #d0d0d0;
+  color: #000000;
+
+  &--dark {
+    background-color: #434343;
+  }
 }
 
 .home {
@@ -36,12 +40,20 @@ body {
   align-items: center;
   margin: 0 auto;
   padding: 30px auto;
+  background-color: #d0d0d0;
+
+  &--dark {
+    background-color: #434343;
+    color: #fff;
+  }
 
   &--products {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.5rem;
     padding-top: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 
   &--title {

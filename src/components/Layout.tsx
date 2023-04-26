@@ -26,7 +26,12 @@ const Layout: React.FC<LayoutProps> = observer(({ title = "Ecommerce NextJS", ch
   }, []);
 
   return (
-    <section className='layout--container'>
+    <section
+      className={classNames({
+        "layout--container": true,
+        "layout--container--dark": store.darkMode,
+      })}
+    >
       <Head>
         <title>{title}</title>
       </Head>

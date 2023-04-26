@@ -1,3 +1,6 @@
+import store from "@/store/store";
+import classNames from "classnames";
+import { observer } from "mobx-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,9 +9,14 @@ interface ProductProps {
   product: { description: string; name: string; image: string; brand: string; price: number };
 }
 
-const ProductItem: React.FC<ProductProps> = ({ product }) => {
+const ProductItem: React.FC<ProductProps> = observer(({ product }) => {
   return (
-    <article className='product'>
+    <article
+      className={classNames({
+        "product--container": true,
+        "product--container--dark": store.darkMode,
+      })}
+    >
       <Link href={`/product/${product.name}`} className='product--link'>
         <Image
           src={product.image}
@@ -32,6 +40,6 @@ const ProductItem: React.FC<ProductProps> = ({ product }) => {
       </section>
     </article>
   );
-};
+});
 
 export default ProductItem;

@@ -1,5 +1,11 @@
 .layout {
-  &--section {
+  &--container {
+    background-color: #d0d0d0;
+  }
+
+  &--container--dark {
+    background-color: #434343;
+    color: #fff;
   }
   &--navbar {
     background-color: #5ed4ff;

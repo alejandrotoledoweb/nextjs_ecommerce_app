@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import { makeAutoObservable, runInAction } from "mobx";
 
 class Store {

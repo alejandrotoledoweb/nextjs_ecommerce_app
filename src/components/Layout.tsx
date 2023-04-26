@@ -1,23 +1,51 @@
-import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
+import store from "@/store/store";
+import { Typography, Container, Switch } from "@material-ui/core";
+import classNames from "classnames";
+import { observer } from "mobx-react";
 import Head from "next/head";
-import React from "react";
+import NextLink from "next/link";
+import React, { useEffect } from "react";
 
 interface LayoutProps {
   title?: string;
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ title = "Ecommerce NextJS", children }) => {
+const Layout: React.FC<LayoutProps> = observer(({ title = "Ecommerce NextJS", children }) => {
+  const handleDarkMode = () => {
+    if (store.darkMode) {
+      store.setDarkModeOff();
+    } else {
+      store.setDarkModeOn();
+    }
+  };
+
+  useEffect(() => {
+    const darkModeValue = localStorage.getItem("darkMode");
+    store.setDarkModeValue(darkModeValue);
+  }, []);
+
   return (
-    <section className=''>
+    <section className='layout--container'>
       <Head>
         <title>{title}</title>
       </Head>
-      <AppBar position='static'>
-        <Toolbar>
+      <nav
+        className={classNames({ "layout--navbar": true, "layout--navbar--dark": store.darkMode })}
+      >
+        <NextLink href='/' passHref>
           <Typography variant='h6'>Ecommerce NextJS</Typography>
-        </Toolbar>
-      </AppBar>
+        </NextLink>
+        <div className='layout--login'>
+          <Switch checked={store.darkMode} onChange={handleDarkMode}></Switch>
+          <NextLink href='/cart' passHref>
+            <Typography variant='body2'>Cart</Typography>
+          </NextLink>
+          <NextLink href='/login' passHref>
+            <Typography variant='body2'>Login</Typography>
+          </NextLink>
+        </div>
+      </nav>
 
       <Container>{children}</Container>
       <footer>
@@ -27,6 +55,6 @@ const Layout: React.FC<LayoutProps> = ({ title = "Ecommerce NextJS", children })
       </footer>
     </section>
   );
-};
+});
 
 export default Layout;

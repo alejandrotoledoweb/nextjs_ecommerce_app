@@ -28,7 +28,7 @@ const ProducScreen: React.FC = () => {
           src={product.image}
           alt={product.name}
         />
-        <article className='product--details'>
+        <article className='single--details'>
           <ul>
             <li>
               {" "}
@@ -37,14 +37,14 @@ const ProducScreen: React.FC = () => {
             <li className='single--category'>Category: {product.category}</li>
             <li className='single--description'>Description: {product.description}</li>
             <li className='single--reviews'>
-              {product.rating} of {product.numReviews} reviews
+              {product.rating} rating from {product.numReviews} reviews
             </li>
           </ul>
         </article>
-        <aside className='product--price'>
+        <aside className='single--price'>
           <ul>
             <li>Price ${product.price}</li>
-            <li>Status {product.countInStock > 0 ? "In Stock" : "Unavailable"}</li>
+            <li>Status: {product.countInStock > 0 ? "In Stock" : "Unavailable"}</li>
           </ul>
           <button className='single--button'>Add to Cart</button>
         </aside>

@@ -3,10 +3,11 @@ import { Inter } from "next/font/google";
 import Layout from "@/components/Layout";
 import data from "@/utils/data";
 import ProductItem from "@/components/product-item";
+import { observer } from "mobx-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const Home = observer(() => {
   return (
     <Layout>
       <main className={`home ${inter.className}`}>
@@ -18,4 +19,6 @@ export default function Home() {
       </main>
     </Layout>
   );
-}
+});
+
+export default Home;

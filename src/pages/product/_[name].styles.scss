@@ -1,0 +1,69 @@
+// @use "../../styles/globals.scss";
+
+$primary-btn-color: #e8ec00;
+$primary-hover-btn-color: #bcbc00;
+
+.single {
+  &--container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 20px 0px;
+  }
+
+  &--link {
+    background-color: #707070;
+    border: none;
+    color: black;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+  &--title {
+    font-size: 1.6em;
+  }
+
+  &--button {
+    background-color: $primary-btn-color;
+    border: none;
+    color: black;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  &--button:hover {
+    background-color: $primary-hover-btn-color;
+  }
+
+  &--details {
+    min-width: 250px;
+  }
+
+  &--price {
+    width: max-content;
+    min-width: 250px;
+    border: 1px solid #6d6d6d;
+    border-radius: 15px;
+    padding: 8px 8px;
+    box-shadow: #6d6d6d 0px 0px 5px;
+  }
+}

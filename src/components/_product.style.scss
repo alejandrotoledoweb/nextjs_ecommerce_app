@@ -1,0 +1,40 @@
+$primary-btn-color: #e8ec00;
+
+.product {
+  border-radius: 10px;
+  box-shadow: inset;
+  background-color: #fff;
+  color: #000;
+  &--image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  &--description {
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  &--button {
+    background-color: $primary-btn-color;
+    border: none;
+    color: black;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  &--button:hover {
+    background-color: #bcbc00;
+  }
+}

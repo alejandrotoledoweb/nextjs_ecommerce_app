@@ -1,0 +1,27 @@
+.layout {
+  &--section {
+  }
+  &--navbar {
+    background-color: #5ed4ff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    color: black;
+  }
+
+  &--navbar--dark {
+    background-color: #4553eb;
+    color: white;
+  }
+
+  &--login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-right: 15px;
+  }
+}

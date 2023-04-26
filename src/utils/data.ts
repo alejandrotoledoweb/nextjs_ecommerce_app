@@ -12,7 +12,7 @@ const data = {
       description: "A popular shirt",
     },
     {
-      name: "it shirts",
+      name: "cool shirts",
       category: "Shirts",
       image: "/images/shirt2.jpg ",
       price: 87,

@@ -3,14 +3,15 @@ import Head from "next/head";
 import React from "react";
 
 interface LayoutProps {
+  title?: string;
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ title = "Ecommerce NextJS", children }) => {
   return (
     <section className=''>
       <Head>
-        <title>Ecommerce NextJS</title>
+        <title>{title}</title>
       </Head>
       <AppBar position='static'>
         <Toolbar>

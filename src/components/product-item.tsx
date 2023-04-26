@@ -9,7 +9,7 @@ interface ProductProps {
 const ProductItem: React.FC<ProductProps> = ({ product }) => {
   return (
     <article className='product'>
-      <Link href={`/product/${product.description}`} className='product--link'>
+      <Link href={`/product/${product.name}`} className='product--link'>
         <Image
           src={product.image}
           alt={product.name}
@@ -19,7 +19,7 @@ const ProductItem: React.FC<ProductProps> = ({ product }) => {
         />
       </Link>
       <section className='product--description'>
-        <Link href={`/product/${product.description}`} className='product--link'>
+        <Link href={`/product/${product.name}`} className='product--link'>
           <h4>{product.name}</h4>
         </Link>
         <dl className='product--details'>

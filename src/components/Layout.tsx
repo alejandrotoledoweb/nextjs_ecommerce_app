@@ -42,7 +42,7 @@ const Layout: React.FC<LayoutProps> = observer(({ title = "Ecommerce NextJS", ch
           <Typography variant='h6'>Ecommerce NextJS</Typography>
         </NextLink>
         <div className='layout--login'>
-          <Switch checked={store.darkMode} onChange={handleDarkMode}></Switch>
+          <Switch checked={store.darkMode} onChange={handleDarkMode} color='default' />
           <NextLink href='/cart' passHref>
             <Typography variant='body2'>Cart</Typography>
           </NextLink>

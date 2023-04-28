@@ -1,5 +1,5 @@
 import store from "@/store/store";
-import { Typography, Container, Switch } from "@material-ui/core";
+import { Typography, Container, Switch, Badge } from "@material-ui/core";
 import classNames from "classnames";
 import { observer } from "mobx-react";
 import Head from "next/head";
@@ -44,7 +44,19 @@ const Layout: React.FC<LayoutProps> = observer(({ title = "Ecommerce NextJS", ch
         <div className='layout--login'>
           <Switch checked={store.darkMode} onChange={handleDarkMode} color='default' />
           <NextLink href='/cart' passHref>
-            <Typography variant='body2'>Cart</Typography>
+            <Typography variant='body2'>
+              {store.cartItems.length > 0 ? (
+                <Badge
+                  overlap='rectangular'
+                  color='secondary'
+                  badgeContent={store.cartItems.length}
+                >
+                  Cart
+                </Badge>
+              ) : (
+                "Cart"
+              )}
+            </Typography>
           </NextLink>
           <NextLink href='/login' passHref>
             <Typography variant='body2'>Login</Typography>

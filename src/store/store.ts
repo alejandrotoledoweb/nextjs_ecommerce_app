@@ -1,7 +1,9 @@
+import { ProductInterface } from "@/utils/interfaces";
 import { makeAutoObservable, runInAction } from "mobx";
 
 class Store {
   darkMode: boolean = false;
+  cartItems: any[] = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -27,6 +29,17 @@ class Store {
     runInAction(() => {
       this.darkMode = false;
     });
+  }
+
+  addItemToCart(newItem: ProductInterface) {
+    const newCartItem = this.cartItems.map(item =>
+      item.name === newItem.name ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    console.log(newCartItem);
+    runInAction(() => {
+      this.cartItems = [...this.cartItems, newCartItem];
+    });
+    console.log(this.cartItems.length);
   }
 }
 

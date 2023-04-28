@@ -1,6 +1,9 @@
 import Layout from "@/components/Layout";
 import Product from "@/models/Products";
+import store from "@/store/store";
 import { ProductInterface } from "@/utils/interfaces";
+import axios from "axios";
+import { observer } from "mobx-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -21,7 +24,14 @@ interface ProductProps {
   product: ProductInterface;
 }
 
-const ProducScreen: React.FC<ProductProps> = ({ product }) => {
+const ProducScreen: React.FC<ProductProps> = observer(({ product }) => {
+  const addToCartHandle = async () => {
+    console.log("Add to Cart");
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    console.log(data);
+    store.addItemToCart(data);
+  };
+
   if (!product) {
     return <span>Product Not Found</span>;
   }
@@ -58,11 +68,13 @@ const ProducScreen: React.FC<ProductProps> = ({ product }) => {
             <li>Price ${product.price}</li>
             <li>Status: {product.countInStock > 0 ? "In Stock" : "Unavailable"}</li>
           </ul>
-          <button className='single--button'>Add to Cart</button>
+          <button className='single--button' onClick={addToCartHandle}>
+            Add to Cart
+          </button>
         </aside>
       </section>
     </Layout>
   );
-};
+});
 
 export default ProducScreen;

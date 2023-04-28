@@ -6,12 +6,13 @@ import { observer } from "mobx-react";
 import classNames from "classnames";
 import store from "@/store/store";
 import { ProductInterface } from "@/utils/interfaces";
+import axios from "axios";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const getServerSideProps = async () => {
-  const response = await fetch("http:localhost:3000/api/products");
-  const products = await response.json();
+  const response = await axios.get("http://localhost:3000/api/products");
+  const products = await response.data;
   return {
     props: {
       products,

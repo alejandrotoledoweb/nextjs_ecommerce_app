@@ -1,15 +1,27 @@
 import Layout from "@/components/Layout";
-import data from "@/utils/data";
+import Product from "@/models/Products";
+import { ProductInterface } from "@/utils/interfaces";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 
-const ProducScreen: React.FC = () => {
-  const { query } = useRouter();
-  const { name } = query;
-  const product = data.products.find(x => x.name === name);
+export const getServerSideProps = async (context: { params: { name: string } }) => {
+  const { params } = context;
+  const { name } = params;
+  const product = await Product.findOne({ name }).lean();
+  const parsedProduct = JSON.parse(JSON.stringify(product));
+  return {
+    props: {
+      product: parsedProduct,
+    },
+  };
+};
 
+interface ProductProps {
+  product: ProductInterface;
+}
+
+const ProducScreen: React.FC<ProductProps> = ({ product }) => {
   if (!product) {
     return <span>Product Not Found</span>;
   }

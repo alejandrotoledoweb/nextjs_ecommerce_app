@@ -1,4 +1,5 @@
 export interface ProductInterface {
+  _id?: string;
   name: string;
   slug: string;
   category: string;

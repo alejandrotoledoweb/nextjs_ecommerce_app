@@ -12,5 +12,5 @@ export default async function handler(
   await db.dbConnect();
   const products = await ProductModel.find({});
   await db.dbDisconnect();
-  res.send(products);
+  res.json(products);
 }

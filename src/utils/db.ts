@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { MongooseOptions } from "mongoose";
 
 type connectionType = {
   isConnected: number | boolean;
@@ -11,7 +11,7 @@ async function dbConnect() {
     console.log("alredy connected");
     return;
   }
-  if (mongoose.connection?.length > 0) {
+  if (mongoose.connections.length > 0) {
     connection.isConnected = mongoose.connections[0].readyState;
     if (connection.isConnected === 1) {
       console.log("alredy connected");
@@ -21,10 +21,13 @@ async function dbConnect() {
     await mongoose.disconnect();
   }
 
-  const db = await mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  const db = await mongoose.connect(
+    process.env.MONGODB_URI as string,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    } as MongooseOptions
+  );
   console.log("new connection");
   connection.isConnected = db.connections[0].readyState;
 }

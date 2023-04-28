@@ -1,7 +1,4 @@
-// @use "../../styles/globals.scss";
-
-$primary-btn-color: #e8ec00;
-$primary-hover-btn-color: #bcbc00;
+@import "../../styles/colors";
 
 .single {
   &--container {
@@ -20,7 +17,7 @@ $primary-hover-btn-color: #bcbc00;
   }
 
   &--link {
-    background-color: #707070;
+    background-color: $primary-btn-back-color;
     border: none;
     color: black;
     padding: 10px 15px;

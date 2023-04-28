@@ -1,14 +1,16 @@
+@import "../styles/colors";
+
 .layout {
   &--container {
-    background-color: #d0d0d0;
+    background-color: $primary-bg-light-color;
   }
 
   &--container--dark {
-    background-color: #434343;
+    background-color: $primary-bg-dark-color;
     color: #fff;
   }
   &--navbar {
-    background-color: #5ed4ff;
+    background-color: $primary-light-color;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,7 +21,7 @@
   }
 
   &--navbar--dark {
-    background-color: #4553eb;
+    background-color: $primary-dark-color;
     color: white;
   }
 

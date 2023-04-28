@@ -5,8 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-$primary-btn-color: #e8ec00;
-$primary-hover-btn-color: #bcbc00;
+@import "./colors";
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -24,11 +23,11 @@ $primary-hover-btn-color: #bcbc00;
 }
 
 .main {
-  background-color: #d0d0d0;
+  background-color: $primary-bg-light-color;
   color: #000000;
 
   &--dark {
-    background-color: #434343;
+    background-color: $primary-bg-dark-color;
   }
 }
 
@@ -40,10 +39,10 @@ $primary-hover-btn-color: #bcbc00;
   align-items: center;
   margin: 0 auto;
   padding: 30px auto;
-  background-color: #d0d0d0;
+  background-color: $primary-bg-light-color;
 
   &--dark {
-    background-color: #434343;
+    background-color: $primary-bg-dark-color;
     color: #fff;
   }
 
@@ -98,7 +97,7 @@ $primary-hover-btn-color: #bcbc00;
   }
 
   &--button:hover {
-    background-color: #bcbc00;
+    background-color: $primary-hover-btn-color;
   }
 }
 

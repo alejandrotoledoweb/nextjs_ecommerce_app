@@ -2,6 +2,7 @@ const data = {
   products: [
     {
       name: "it shirts",
+      slug: "it-shirts unique",
       category: "Shirts",
       image: "/images/shirt1.jpg ",
       price: 70,
@@ -13,6 +14,7 @@ const data = {
     },
     {
       name: "cool shirts",
+      slug: "cool shirts for cool guys",
       category: "Shirts",
       image: "/images/shirt2.jpg ",
       price: 87,
@@ -24,6 +26,7 @@ const data = {
     },
     {
       name: "slim shirts",
+      slug: "slim shirts for skinny people",
       category: "Shirts",
       image: "/images/shirt3.jpg ",
       price: 67,
@@ -35,6 +38,7 @@ const data = {
     },
     {
       name: "golf pants",
+      slug: "golf pants to play gold",
       category: "Pants",
       image: "/images/pants1.jpg ",
       price: 89,
@@ -46,6 +50,7 @@ const data = {
     },
     {
       name: "slim pants",
+      slug: "slim pants to party",
       category: "Pants",
       image: "/images/pants2.jpg ",
       price: 87,
@@ -57,6 +62,7 @@ const data = {
     },
     {
       name: "jogging pants",
+      slug: "jogging pants for jogging",
       category: "Shirts",
       image: "/images/pants3.jpg ",
       price: 75,

@@ -7,6 +7,7 @@ import classNames from "classnames";
 import store from "@/store/store";
 import { ProductInterface } from "@/utils/interfaces";
 import axios from "axios";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,9 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = observer(({ products }) => {
+  useEffect(() => {
+    store.setInitialCartItems();
+  }, []);
   return (
     <Layout>
       <main

@@ -6,10 +6,24 @@ import Link from "next/link";
 import React from "react";
 
 interface ProductProps {
-  product: { description: string; name: string; image: string; brand: string; price: number };
+  product: {
+    description: string;
+    name: string;
+    image: string;
+    brand: string;
+    price: number;
+    slug: string;
+    category: string;
+    countInStock: number;
+    rating: number;
+    numReviews: number;
+  };
 }
 
 const ProductItem: React.FC<ProductProps> = observer(({ product }) => {
+  const handleAddToCart = () => {
+    store.addItemToCart(product);
+  };
   return (
     <article
       className={classNames({
@@ -34,7 +48,7 @@ const ProductItem: React.FC<ProductProps> = observer(({ product }) => {
           <dt>{product.brand}</dt>
           <dd>$ {product.price}</dd>
         </dl>
-        <button className='product--button' type='button'>
+        <button className='product--button' type='button' onClick={handleAddToCart}>
           Add to cart
         </button>
       </section>

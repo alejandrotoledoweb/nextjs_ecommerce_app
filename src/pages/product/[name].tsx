@@ -26,9 +26,7 @@ interface ProductProps {
 
 const ProducScreen: React.FC<ProductProps> = observer(({ product }) => {
   const addToCartHandle = async () => {
-    console.log("Add to Cart");
     const { data } = await axios.get(`/api/products/${product._id}`);
-    console.log(data);
     store.addItemToCart(data);
   };
 

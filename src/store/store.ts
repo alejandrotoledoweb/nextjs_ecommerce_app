@@ -35,11 +35,21 @@ class Store {
     const newCartItem = this.cartItems.map(item =>
       item.name === newItem.name ? { ...item, quantity: item.quantity + 1 } : item
     );
-    console.log(newCartItem);
+    const totalCartItems = [...this.cartItems, newCartItem];
+
+    localStorage.setItem("cartItems", JSON.stringify([...this.cartItems, newCartItem]));
+
+    console.log(totalCartItems);
     runInAction(() => {
-      this.cartItems = [...this.cartItems, newCartItem];
+      this.cartItems = totalCartItems;
     });
-    console.log(this.cartItems.length);
+  }
+
+  setInitialCartItems() {
+    const getCarItems = localStorage.getItem("cartItems");
+    runInAction(() => {
+      this.cartItems = getCarItems ? JSON.parse(getCarItems) : [];
+    });
   }
 }
 
